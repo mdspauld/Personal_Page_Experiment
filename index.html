@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Application">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport">
+    <title>Personal App</title>
 </head>
-<body>
-Hello World
+<body ng-controller="maincontroller" ng-init="load()">
+    <div ng-view></div>
+
+
+    <script>
+        var myApp = angular.module("myApp", ["ngRoute"]);  // Added ngRoute routing and view functionality.
+
+        myApp.config(function ($routeProvider) {
+        $routeProvider
+            .when("/", { // Home View "#!/"
+            templateUrl: "/views/home.html",
+            controller: "homeController"
+            })
+        })
+
+    </script>
+
+    <script src="controllers/home.js"></script>
+    <script src="controllers/main.js"></script>
+
 </body>
 </html>
